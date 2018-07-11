@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="server.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Suave" Version="2.4.3" />
+  </ItemGroup>
+
+</Project>
