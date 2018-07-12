@@ -1,4 +1,4 @@
-﻿module lib
+﻿module Lib
 
 open System.IO
 open System.Runtime.Serialization.Json
