@@ -21,14 +21,42 @@ let other : WebPart =
         POST >=> OK "POST Other"
     ]
 
-let jsonTest = """{
+(*let jsonTest = """{
     "players": ["Tristan", "Letrou" ],
     "turn": 2,
     "grid" : [ 1, 1, 1, 1, 1 ]
 }"""
 
-type Game = JsonProvider<"data/tristan_letrou_game.json">
-let testGame = Game.GetSample()
+let jsonTest2 = """[
+    ["Tristan", "Letrou" ],
+    2,
+    [ 1, 1, 1, 1, 1 ]
+]"""*)
+
+
+type Game2 = {
+    Players: string[];
+    Turn: int;
+    Grid: int[]
+}
+
+let gameData = JsonProvider<"data/tristan_letrou_game.json">.GetSample()
+//let testGame = Game.GetSample()
+
+let currentGame = {
+    Players = gameData.Players;
+    Turn = gameData.Turn;
+    Grid = gameData.Grid
+}
+
+let updatedGame = {
+    currentGame with 
+    Players = currentGame.Players
+    Turn = currentGame.Turn + 1; 
+    //Grid = testGame.Grid
+}
+
+printfn "%A" updatedGame
 
 //let testGame = JObject.Parse(jsonTest).Descendants()
 //printfn "%A" (JObject.Parse(jsonTest).Descendants())
