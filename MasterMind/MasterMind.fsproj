@@ -6,8 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="login.fs" />
+    <Compile Include="lib.fs" />
+    <Content Include="data\players.json" />
     <Content Include="data\tristan_letrou_game.json" />
-    <Content Include="data\test.json" />
+    <Content Include="data\model.json" />
     <Content Include="public\not_found.html" />
     <Content Include="public\index.html" />
     <Compile Include="Start.fs" />
