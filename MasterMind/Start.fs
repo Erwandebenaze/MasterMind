@@ -4,8 +4,10 @@ open Suave
 open Suave.Operators
 open Suave.Filters
 open Suave.Successful
+open FSharp.Data
 open System.Linq
 open Newtonsoft.Json.Linq
+open FSharp.Data
 
 let sample : WebPart = 
     path "/hello" >=> choose [
@@ -19,20 +21,20 @@ let other : WebPart =
         POST >=> OK "POST Other"
     ]
 
-let jsonTest = @"{
-    'players': ['playerA', 'playerB' ],
-    'turn': 5,
-    'grid' : [ 3, 4, 8, 7, 3 ]
-}"
+let jsonTest = """{
+    "players": ["Tristan", "Letrou" ],
+    "turn": 2,
+    "grid" : [ 1, 1, 1, 1, 1 ]
+}"""
 
-type game = {
-    players : array<string>
-    turn: int
-    grid: array<int>
-}
+type Game = JsonProvider<"data/tristan_letrou_game.json">
+let testGame = Game.GetSample()
 
-let testGame = JObject.Parse(jsonTest).["players"].Select(fun a -> a.ToString())
-printfn "%s" (testGame.ToString())
+//let testGame = JObject.Parse(jsonTest).Descendants()
+//printfn "%A" (JObject.Parse(jsonTest).Descendants())
+//printfn "%A" (JObject.Parse(jsonTest).Children())
+//printfn "%A" (JObject.Parse(jsonTest).Properties())
+//printfn "%A" (JObject.Parse(jsonTest).Value<string>( fun v -> v.ToString()))
 
 //printfn "%A" testGame2
 

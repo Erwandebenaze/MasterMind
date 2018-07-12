@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="data\tristan_letrou_game.json" />
+    <Content Include="data\test.json" />
     <Content Include="public\not_found.html" />
     <Content Include="public\index.html" />
     <Compile Include="Start.fs" />
@@ -13,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FSharp.Data" Version="2.4.6" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Suave" Version="2.4.3" />
   </ItemGroup>
