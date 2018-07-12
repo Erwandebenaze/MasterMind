@@ -1,5 +1,0 @@
-﻿{
-  "players": [ "playerA", "playerB" ],
-  "turn": 5,
-  "grid": [ 3, 4, 8, 7, 3 ]
-}

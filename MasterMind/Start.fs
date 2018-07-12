@@ -5,9 +5,6 @@ open Suave.Operators
 open Suave.Filters
 open Suave.Successful
 open FSharp.Data
-open System.Linq
-open Newtonsoft.Json.Linq
-open FSharp.Data
 
 let sample : WebPart = 
     path "/hello" >=> choose [
@@ -21,27 +18,25 @@ let other : WebPart =
         POST >=> OK "POST Other"
     ]
 
-(*let jsonTest = """{
-    "players": ["Tristan", "Letrou" ],
-    "turn": 2,
-    "grid" : [ 1, 1, 1, 1, 1 ]
-}"""
+let test : WebPart = 
+    path "/test" >=> choose [
+        GET >=> OK "fiez"
+    ]
 
-let jsonTest2 = """[
-    ["Tristan", "Letrou" ],
-    2,
-    [ 1, 1, 1, 1, 1 ]
-]"""*)
-
-
-type Game2 = {
+type GameData = {
     Players: string[];
     Turn: int;
     Grid: int[]
 }
 
+//let wr = new System.IO.StreamWriter("data/tristan_letrou_game_updated.json")
+//wr.Write (json<Game2> updatedGame)
+//wr.Close()
+
+let nextPlayer = fun [|a;b|] ->
+    [|b;a|]
+
 let gameData = JsonProvider<"data/tristan_letrou_game.json">.GetSample()
-//let testGame = Game.GetSample()
 
 let currentGame = {
     Players = gameData.Players;
@@ -51,22 +46,9 @@ let currentGame = {
 
 let updatedGame = {
     currentGame with 
-    Players = currentGame.Players
+    Players = (*Array.rev currentGame.Players*) nextPlayer currentGame.Players
     Turn = currentGame.Turn + 1; 
     //Grid = testGame.Grid
 }
 
 printfn "%A" updatedGame
-
-//let testGame = JObject.Parse(jsonTest).Descendants()
-//printfn "%A" (JObject.Parse(jsonTest).Descendants())
-//printfn "%A" (JObject.Parse(jsonTest).Children())
-//printfn "%A" (JObject.Parse(jsonTest).Properties())
-//printfn "%A" (JObject.Parse(jsonTest).Value<string>( fun v -> v.ToString()))
-
-//printfn "%A" testGame2
-
-//let json : WebPart = 
-//    path "/json" >=> choose [
-//        GET >=> 
-//    ]

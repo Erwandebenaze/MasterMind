@@ -21,6 +21,7 @@ let main argv =
         GET >=> path "/" >=> Files.file "public/index.html"
         sample
         other
+        test
         //RequestErrors.NOT_FOUND Files.file "public/not_found.html"
         RequestErrors.NOT_FOUND "Page not found"
       ]
