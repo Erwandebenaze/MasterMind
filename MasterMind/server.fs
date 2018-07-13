@@ -7,7 +7,7 @@ open Suave.Operators
 open System.IO
 open Suave.Filters
 open Login
-
+open Game
 Directory.SetCurrentDirectory("../../../")
 
 [<EntryPoint>]
@@ -21,6 +21,7 @@ let main argv =
       choose [
         GET >=> path "/" >=> Files.file "public/index.html"
         login
+        solution
         //RequestErrors.NOT_FOUND Files.file "public/not_found.html"
         RequestErrors.NOT_FOUND "Page not found"
       ]
