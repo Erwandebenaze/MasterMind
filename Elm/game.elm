@@ -19,11 +19,11 @@ main =
 -- type alias Model = Int
 type alias Model = 
     {
-      firstCombinaison : List String,
-      combinaison : List String,
+      firstCombinaison : (List String),
+      combinaison : (List String),
       numberOfTry : Int,
-      result : List String,
-      try : List String
+      result : (List String),
+      try : (List String)
     }
 
 type alias Colors = 
@@ -42,7 +42,11 @@ type alias Colors =
 model : Model
 model = 
   {
-
+    firstCombinaison = [],
+    numberOfTry = 0,
+    combinaison = [],
+    result = [],
+    try = []
   }
 
 couleur : Colors
@@ -64,18 +68,17 @@ couleur =
 
 -- UPDATE
 
-
-type Msg
-  = SubmitTry List String
-  | SubmitCombinaison List String
-  | Reset
-  | Red
-  | Blue
-  | Yellow
-  | Pink
-  | Orange
-  | Green
   
+type Msg
+  = SubmitTry (List String)
+  | SubmitCombinaison (List String)
+  | Reset
+  -- | Red
+  -- | Blue
+  -- | Yellow
+  -- | Pink
+  -- | Orange
+  -- | Green
 
 
 update : Msg -> Model -> Model
@@ -131,13 +134,12 @@ view model =
         [
           div []
               [ text "Choissisez votre combinaison"]
-          ,div []
-              [ button [ onClick Blue ] text "0 ", text "0 ", text "0 ", text "0 ", text "0 " ]
+          -- ,div []
+              -- [ button [ onClick Blue ] [text "0 "], text "0 ", text "0 ", text "0 ", text "0 " ]
         ]
       ,div []
         [
-           button [ onClick SubmitCombinaison ] [text "Soumettre la combinaison"],
+          --  button [ onClick SubmitCombinaison ] [text "Soumettre la combinaison"],
            button [ onClick Reset ] [text "Remettre à 0"]
-
         ]
     ]
