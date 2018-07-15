@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="Types.fs" />
     <Compile Include="Lib.fs" />
+    <Compile Include="Game.fs" />
     <Compile Include="Login.fs" />
     <Content Include="data\players.json" />
     <Content Include="data\tristan_letrou_game.json" />

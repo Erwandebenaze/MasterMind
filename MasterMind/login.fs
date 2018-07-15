@@ -32,7 +32,6 @@ let startGame = fun (player1,player2) ->
         | player1, player2 when String.toLowerInvariant(player1) = "morgan" || String.toLowerInvariant(player2) = "morgan" -> "Morgan wins!" |> OK
         | _, _ -> createGameFile (player1, player2)
 
-    
 let logPlayer (name:string) :WebPart =
     if(List.exists(fun p -> p = name) players) then
         RequestErrors.BAD_REQUEST "A player with this name already exists!"
@@ -51,5 +50,5 @@ let login : WebPart =
         match r.queryParam "name" with
         | Choice1Of2 name -> logPlayer name
         | Choice2Of2 message -> RequestErrors.BAD_REQUEST message)
-      RequestErrors.NOT_FOUND "Found no handlers" ]
+      ]
       
