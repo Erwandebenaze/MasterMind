@@ -1,39 +1,8 @@
 ﻿module Start
 
-open Suave
-open Suave.Operators
-open Suave.Filters
-open Suave.Successful
 open FSharp.Data
 open Computation
-
-let sample : WebPart = 
-    path "/hello" >=> choose [
-      GET  >=> OK "GET hello"
-      POST >=> OK "POST hello"
-      RequestErrors.NOT_FOUND "Found no handlers" ]
-
-let other : WebPart = 
-    path "/" >=> choose [
-        GET >=> OK "GET Other"
-        POST >=> OK "POST Other"
-    ]
-
-let test : WebPart = 
-    path "/test" >=> choose [
-        GET >=> OK "fiez"
-    ]
-
-type GameData = {
-    Players: string[];
-    Turn: int;
-    Solution: string[]
-    Grid: string[][]
-}
-
-//let wr = new System.IO.StreamWriter("data/tristan_letrou_game_updated.json")
-//wr.Write (json<Game2> updatedGame)
-//wr.Close()
+open Types
 
 let nextPlayer = fun (arr: string[]) -> [| arr.[1]; arr.[0] |]
 
