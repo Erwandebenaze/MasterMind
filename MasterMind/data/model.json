@@ -1,10 +1,10 @@
 ﻿{
   "players": [ "playerA", "playerB" ],
-  "turn": 2,
+  "turn": 3,
   "solution": [ "red", "orange", "orange", "blue" ],
   "grid": [
-    [ "red", "bleu", "green", "yellow", "ok", "color", null, null],
+    [ "red", "bleu", "green", "yellow", "ok", "color", null, null ],
     [ "green", "yellow", "green", "yellow", null, null, null, null ],
-    [ "red", "orange", "blue", "orange", "ok", "ok", "color", "color" ]
+    [ "red", "orange", "blue", "orange", null, null, null, null ]
   ]
 }
