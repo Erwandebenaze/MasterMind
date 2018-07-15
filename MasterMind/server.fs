@@ -8,6 +8,7 @@ open System.IO
 open Suave.Filters
 open Login
 open Game
+open Start
 Directory.SetCurrentDirectory("../../../")
 
 [<EntryPoint>]
@@ -23,6 +24,7 @@ let main argv =
         GET >=> path "/" >=> Files.file "public/index.html"
         login
         solution
+
         RequestErrors.NOT_FOUND "Page not found"
       ]
   
