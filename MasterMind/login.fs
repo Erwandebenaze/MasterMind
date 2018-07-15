@@ -19,6 +19,7 @@ let createGameFile = fun (player1, player2) ->
                     let name = player1 + "_" + player2 + "_game"
                     let newGame = {
                         Players = [|player1;player2|]
+                        Solution = [||]
                         Turn = 0;
                         Grid = [||]
                     }

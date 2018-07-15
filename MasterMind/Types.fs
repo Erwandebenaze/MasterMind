@@ -3,5 +3,6 @@
 type GameData = {
     Players: string[];
     Turn: int;
-    Grid: string[]
+    Solution: string[]
+    Grid: string[][]
 }

@@ -1,1 +1,1 @@
-{"Grid@":[1,1,1,1,1],"Players@":["Tristan","Letrou"],"Turn@":3}
+{"Grid@":[["red","bleu","green","yellow","ok","color"],["green","yellow","green","yellow"],["red","orange","blue","orange"]],"Players@":{"head":"playerA","tail":{"head":"playerB","tail":{"head":null,"tail":null}}},"Solution@":{"head":"red","tail":{"head":"orange","tail":{"head":"orange","tail":{"head":"blue","tail":{"head":null,"tail":null}}}}},"Turn@":3}
