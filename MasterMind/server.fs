@@ -6,12 +6,13 @@ open Suave
 open Suave.Operators
 open System.IO
 open Suave.Filters
-open Start
-open System.IO
-
+open Login
+open Game
 Directory.SetCurrentDirectory("../../../")
 
 [<EntryPoint>]
+
+
 let main argv = 
   let cts = new CancellationTokenSource()
   let conf = { defaultConfig with cancellationToken = cts.Token }
@@ -19,9 +20,8 @@ let main argv =
   let app : WebPart =
       choose [
         GET >=> path "/" >=> Files.file "public/index.html"
-        sample
-        other
-        test
+        login
+        solution
         //RequestErrors.NOT_FOUND Files.file "public/not_found.html"
         RequestErrors.NOT_FOUND "Page not found"
       ]
